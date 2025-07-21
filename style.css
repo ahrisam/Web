@@ -10,6 +10,12 @@ header {
     background-color: #03097e;
     color: white;
     padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 .navbar {
@@ -19,6 +25,7 @@ header {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px 30px;
+    transition: background 0.3s;
 }
 
 .logo {
@@ -27,6 +34,11 @@ header {
     border-radius: 8px;
     background: white;
     padding: 4px;
+    transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.logo:hover {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
 nav a {
@@ -35,17 +47,36 @@ nav a {
     margin-left: 30px;
     font-size: 1.1em;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: color 0.2s, letter-spacing 0.3s, transform 0.3s;
     font-family: 'Montserrat', Arial, sans-serif;
+    position: relative;
+    padding: 4px 0;
 }
-
+nav a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, #ffb347, #ff5fcf, #2e8fff);
+    transition: width 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 2px;
+}
 nav a:hover {
     color: #ffb347;
+    letter-spacing: 1px;
+    transform: translateY(-2px) scale(1.07);
+}
+nav a:hover::after {
+    width: 100%;
 }
 
 body {
     font-family: Arial, sans-serif;
-    margin: 40px;
+    margin: 0;
+    padding-top: 100px; /* Add space for fixed navbar */
     line-height: 1.6;
     color: #333;
 }
