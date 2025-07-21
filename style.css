@@ -1,6 +1,7 @@
 body {
     background-color: peachpuff;
 }
-h1{
-    align-content: center;
+.Services {
+    border: 30px;
+    justify-content: center;
 }
